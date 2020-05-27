@@ -7,7 +7,7 @@ let correctAnswers = 0
 
 // 2. Store the rank of a player
 
-let rank = ("No crown");
+let rank;
 
 // 3. Select the <main> HTML element
 
@@ -20,27 +20,27 @@ const main = document.querySelector('main');
 */
 
 const qOne = prompt("What's my favorite food?");
-if (qOne.toUpperCase() === "BREAD") {
+if ( qOne.toUpperCase() === 'BREAD' ) {
   correctAnswers += 1;
 }
 
-const qTwo = prompt("What was my first favorite band?");
-if (qTwo.toUpperCase() === "BACKSTREET BOYS"){
+const qTwo = prompt("Guess my favorite bands across the ages: as a ~5th grade youth, what was my first favorite band?");
+if ( qTwo.toUpperCase() === "BACKSTREET BOYS" ){
   correctAnswers +=1;
 }
 
-const qThree = prompt("What was my second favorite band?");
-if (qThree.toUpperCase() === "BLINK 182") {
+const qThree = prompt("In jr. high, who became my favorite?");
+if ( qThree.toUpperCase() === "BLINK 182" ) {
   correctAnswers +=1;
 }
 
-const qFour = prompt("What was my third favorite band?");
-if (qFour.toUpperCase() === "NIRVANA") {
+const qFour = prompt("In high school, who was my favorite?");
+if ( qFour.toUpperCase() === "NIRVANA" ) {
   correctAnswers += 1;
 }
 
-const qFive = prompt("What was my fourth favorite band?");
-if (qFive.toUpperCase() === "RADIOHEAD") {
+const qFive = prompt("And then after that?");
+if ( qFive.toUpperCase() === "RADIOHEAD" ) {
   correctAnswers += 1;
 }
 /*
@@ -51,17 +51,20 @@ if (qFive.toUpperCase() === "RADIOHEAD") {
    - 0 correct = No crown
 */
 
-if (correctAnswers === 5) {
+if ( correctAnswers === 5 ) {
   rank = "Gold"
-} else if (correctAnswers === 3 || correctAnswers === 4) {
+} else if ( correctAnswers >= 3 ) {
   rank = "Silver"
-} else if (correctAnswers === 1 || correctAnswers === 2) {
+} else if ( correctAnswers >= 1 ) {
   rank = "Bronze"
-} else if (correctAnswers === 0) {
-  rank = "No crown"
+} else {
+  rank = "No crown, sorry :("
 }
 
 
 // 6. Output results to the <main> element
 
-main.innerHTML = `<h2>You got ${correctAnswers} right. Your rank is ${rank}</h2>`
+main.innerHTML = `
+  <h2>You got ${correctAnswers} correct out of 5.</h2> 
+  <p>Your rank is ${rank}</p>
+  `;
